@@ -1,0 +1,9 @@
+.aidlc-worktrees/
+.aurelia/
+.env
+.env.*
+.env.aidlc
+node_modules/
+dist/
+build/
+*.log
