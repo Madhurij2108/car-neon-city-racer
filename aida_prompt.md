@@ -20,7 +20,7 @@ Promotion path: local -> dev -> uat -> staging
 Promotion auto deploy: true
 
 Execution ledger: failed
-Artifact: /home/ubuntu/2026/product-aidlc/projects/car-neon-city-racer/.aurelia/runs/tunnel_018f5360-35b1-462a-a338-5f1f9b090d99-c088adec.md
+Artifact: /home/ubuntu/2026/product-aidlc/projects/car-neon-city-racer/.aurelia/runs/tunnel_76aefd39-acd2-4656-817f-e930a7d55667-549eae9f.md
 Lint: skipped
 Build: failed
 Test: skipped
@@ -38,7 +38,7 @@ Graph gate: passed. Changed source files stayed within ticket context pack `.aur
 AIDLC gate decision: ticket failed because the execution ledger status was `failed`.
 Next action: review gate evidence, fix the failing gate, then use Retry Agent Run or Reconcile Evidence. Gate statuses: lint=skipped, build=failed, test=skipped.
 
-Episode captured: 36277d17-39bb-4e8f-aca6-36d4582cb9d2
+Episode captured: 2294b6ff-d35e-4f01-9ba2-2b5be16fd5f6
 ```
 
 **MANDATORY INSTRUCTIONS FOR THIS RUN:**
@@ -172,7 +172,7 @@ Task-specific graph hints:
 
 - failed `CAR-6`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
 - failed `CAR-4`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
-- failed `CAR-6`: Failed to initialize background TMUX session: tunnel sessions require the product to have a git repository URL configured, since the local agent syncs work via git rather than a shared filesystem
+- failed `CAR-6`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
 
 Ticket: CAR-5
 Type: feature
