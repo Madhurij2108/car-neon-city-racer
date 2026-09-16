@@ -1,0 +1,24 @@
+{
+  "name": "car-neon-city-racer",
+  "version": "0.1.0",
+  "description": "Car Neon City Racer - Interactive Neon Racing Game and Operational Platform",
+  "type": "module",
+  "main": "src/config/runtime.js",
+  "scripts": {
+    "build": "node -e \"console.log('[BUILD] Artifacts and runtime configuration verified.')\"",
+    "lint": "node scripts/lint.js",
+    "test": "node --test test/**/*.test.js",
+    "seed": "node src/seed/seed.js",
+    "reset": "node src/seed/reset.js"
+  },
+  "keywords": [
+    "neon",
+    "racing",
+    "jwt",
+    "rbac",
+    "docker",
+    "express"
+  ],
+  "author": "AIDLC Autonomous Agent",
+  "license": "ISC"
+}

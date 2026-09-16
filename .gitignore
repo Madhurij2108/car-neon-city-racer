@@ -2,6 +2,7 @@
 .aurelia/
 .env
 .env.*
+!.env.example
 .env.aidlc
 node_modules/
 dist/

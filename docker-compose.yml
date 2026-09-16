@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: car-neon-city-racer-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-car_neon_city_racer}
+      POSTGRES_USER: ${POSTGRES_USER:-neon_racer}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-neon_secret_2026}
+    ports:
+      - "${AIDLC_DB_PORT:-0}:5432"
+    volumes:
+      - neon_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-neon_racer} -d ${POSTGRES_DB:-car_neon_city_racer}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - neon-net
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: car-neon-city-racer-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 8000
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-car_neon_city_racer}
+      POSTGRES_USER: ${POSTGRES_USER:-neon_racer}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-neon_secret_2026}
+      JWT_SECRET: ${JWT_SECRET:-neon-city-racer-dev-jwt-secret-key-32chars-min!!}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-3600}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+      UPLOAD_DIR: /app/uploads
+    ports:
+      - "${AIDLC_API_PORT:-0}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - neon_uploads:/app/uploads
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - neon-net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        AIDLC_BROWSER_API_URL: ${AIDLC_BROWSER_API_URL:-/api}
+    container_name: car-neon-city-racer-frontend
+    restart: unless-stopped
+    environment:
+      PORT: 3000
+      API_URL: http://api:8000
+    ports:
+      - "${AIDLC_FRONTEND_PORT:-0}:3000"
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - neon-net
+
+volumes:
+  neon_pgdata:
+    driver: local
+  neon_uploads:
+    driver: local
+
+networks:
+  neon-net:
+    driver: bridge
