@@ -7,3 +7,10 @@ node_modules/
 dist/
 build/
 *.log
+
+# AIDLC Token Conservation Exclusions
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.git/
+.aurelia/runtime/

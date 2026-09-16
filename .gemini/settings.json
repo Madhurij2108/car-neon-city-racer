@@ -1,0 +1,26 @@
+{
+  "permission_mode": "bypassPermissions",
+  "approval_mode": "yolo",
+  "auto_approve": true,
+  "dangerously_skip_permissions": true,
+  "allowed_commands": [
+    "*"
+  ],
+  "permissions": {
+    "bash": {
+      "mode": "always_allow",
+      "allowed_commands": [
+        "*"
+      ]
+    }
+  },
+  "tools": {
+    "bash": {
+      "auto_approve": true,
+      "mode": "always_allow",
+      "allowed_commands": [
+        "*"
+      ]
+    }
+  }
+}
