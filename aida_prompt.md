@@ -20,12 +20,12 @@ Promotion path: local -> dev -> uat -> staging
 Promotion auto deploy: true
 
 Execution ledger: failed
-Artifact: /home/ubuntu/2026/product-aidlc/projects/car-neon-city-racer/.aurelia/runs/tunnel_76aefd39-acd2-4656-817f-e930a7d55667-549eae9f.md
+Artifact: /home/ubuntu/2026/product-aidlc/projects/car-neon-city-racer/.aurelia/runs/tunnel_49f1f147-22b9-48ae-9aa8-67012b13cfde-1ebc8be2.md
 Lint: skipped
 Build: failed
 Test: skipped
 
-Captured filesystem evidence and executed configured quality gates. Status: failed. Changed files: ["aida_prompt.md"]. Lint: skipped. Build: failed. Test: skipped.
+Captured filesystem evidence and executed configured quality gates. Status: failed. Changed files: null. Lint: skipped. Build: failed. Test: skipped.
 
 Validation policy:
 - Unit/API tests: required
@@ -38,7 +38,7 @@ Graph gate: passed. Changed source files stayed within ticket context pack `.aur
 AIDLC gate decision: ticket failed because the execution ledger status was `failed`.
 Next action: review gate evidence, fix the failing gate, then use Retry Agent Run or Reconcile Evidence. Gate statuses: lint=skipped, build=failed, test=skipped.
 
-Episode captured: 2294b6ff-d35e-4f01-9ba2-2b5be16fd5f6
+Episode captured: 9c46cb37-1f4a-4258-8b97-abb04e2ed966
 ```
 
 **MANDATORY INSTRUCTIONS FOR THIS RUN:**
@@ -170,8 +170,8 @@ Task-specific graph hints:
 
 ## Recent Agent Deltas
 
-- failed `CAR-6`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
 - failed `CAR-4`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
+- failed `CAR-6`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
 - failed `CAR-6`: Tool selection: using the ticket's explicitly assigned coding agent "Antigravity CLI (Dell-PC-Antigravity, tunnel)". Lifecycle: Feature lifecycle: clarify acceptance criteria, implement incrementally, run targeted and in...
 
 Ticket: CAR-5
