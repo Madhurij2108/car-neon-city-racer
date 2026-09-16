@@ -9,6 +9,10 @@ Before changing this product, load the generated source graph:
 
 Use graph nodes to locate relevant files before browsing source. Open the smallest connected file set needed for the task. Regenerate the source graph after route, model, component, API, parser, or deployment-shape changes.
 
-Current graph: 15 nodes, 14 edges, generated 2026-09-16T04:30:29Z.
+Current graph: 27 nodes, 35 edges, generated 2026-09-16T05:21:27Z.
 <!-- AURELIA_SOURCE_GRAPH_END -->
+
+
+
+
 
