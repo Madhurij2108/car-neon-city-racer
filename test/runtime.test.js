@@ -1,5 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
+import fs from 'node:fs';
+import { execSync } from 'node:child_process';
 import { getRuntimeConfig } from '../src/config/runtime.js';
 
 describe('Runtime Boundaries Specification', () => {
@@ -53,5 +55,18 @@ describe('Runtime Boundaries Specification', () => {
     assert.strictEqual(config.database.database, 'car_neon_city_racer');
     assert.strictEqual(config.database.user, 'neon_racer');
     assert.strictEqual(config.database.port, 5432);
+  });
+
+  it('should verify package.json defines build script and executes successfully', () => {
+    const pkgPath = new URL('../package.json', import.meta.url);
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+
+    assert.ok(pkg.scripts, 'scripts section must exist in package.json');
+    assert.ok(pkg.scripts.build, 'build script must exist in package.json scripts');
+    assert.strictEqual(typeof pkg.scripts.build, 'string');
+    assert.ok(pkg.scripts.build.length > 0);
+
+    const output = execSync('npm run build', { encoding: 'utf8' });
+    assert.ok(output.includes('[BUILD] Artifacts, runtime configuration, and seed boundaries verified successfully.'));
   });
 });

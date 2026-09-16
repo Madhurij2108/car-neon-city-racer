@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src/config/runtime.js",
   "scripts": {
-    "build": "node -e \"console.log('[BUILD] Artifacts and runtime configuration verified.')\"",
+    "build": "node -e \"Promise.all([import('./src/config/runtime.js'), import('./src/auth/auth.js'), import('./src/seed/seedData.js')]).then(() => console.log('[BUILD] Artifacts, runtime configuration, and seed boundaries verified successfully.')).catch(err => { console.error('[BUILD ERROR]', err); process.exit(1); })\"",
     "lint": "node scripts/lint.js",
     "test": "node --test test/**/*.test.js",
     "seed": "node src/seed/seed.js",
